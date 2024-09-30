@@ -1,5 +1,5 @@
 {
-  "name": "tarea2",
+  "name": "api",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -12,13 +12,17 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "bcrypt": "5.1.1",
     "dotenv": "16.4.5",
     "express": "4.21.0",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "8.7.0"
   },
   "devDependencies": {
     "@types/express": "4.17.21",
     "@types/node": "22.5.5",
+    "@types/bcrypt": "5.0.2",
+    "@types/jsonwebtoken": "9.0.7",
     "nodemon": "3.1.7",
     "ts-node": "10.9.2",
     "typescript": "5.6.2"

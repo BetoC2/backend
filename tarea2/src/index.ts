@@ -1,24 +1,17 @@
-import express from 'express';
-import { connect } from 'mongoose';
-// require('dotenv').config();
 import { config } from 'dotenv';
-config();
+import express from 'express';
 import routes from './routes';
-
+import connectDB from './config/db';
+config();
+connectDB();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT ?? 3000;
 
-const dbUrl = process.env.DB_URL;
-console.log('Mongo URL: ', dbUrl);
-
+app.use(express.json());
 app.use(routes);
 
-connect(dbUrl as string).then(res => {
-    console.log('Ya se conecto!');
-    app.listen(port, () => {
-        console.log(`App is running in port ${port}`);
-    })
-}).catch(err => {
-    console.log('Ocurrio un error');
+app.listen(port, () => {
+    console.log(`Server running on http://localhost:${port}`);
 });
+

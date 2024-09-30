@@ -1,12 +1,11 @@
 import { Schema, model, SchemaTypes } from 'mongoose';
 
 const schema = new Schema({
-    firstName: { type: SchemaTypes.String, required: true },
-    lastName: { type: SchemaTypes.String, required: true },
-    email: { type: SchemaTypes.String, required: true },
-    password: { type: SchemaTypes.String, required: true },
-    role: { type: SchemaTypes.String, default: 'user' },
-    status: { type: SchemaTypes.String } // new, active, blocked, deleted, archived
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  role: { type: String, required: true },
+  status: { type: String, default: 'active' }
 });
 
 const user = model('user', schema);
